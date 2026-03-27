@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Dosette Loader</title>
     
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>💊</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23f1f5f9%22/><text y=%22.85em%22 x=%225%22 font-size=%2280%22>💊</text></svg>">
+
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Dosette">
-    
-   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💊</text></svg>">
 
     <style>
-        :root { --morning: #fff7ed; --morning-text: #9a3412; --night: #eff6ff; --night-text: #1e40af; --other: #f8fafc; }
-        body { font-family: -apple-system, system-ui, sans-serif; background: #f1f5f9; margin: 0; padding: 15px; padding-bottom: 100px; -webkit-tap-highlight-color: transparent; }
-        h2 { color: #0f172a; margin: 15px 0 5px 0; font-size: 1.8rem; }
-        .section-header { font-weight: 800; text-transform: uppercase; margin: 25px 0 10px 5px; font-size: 0.8rem; color: #64748b; letter-spacing: 0.05em; }
+        :root { --morning: #fff7ed; --night: #eff6ff; --other: #f8fafc; }
+        body { font-family: -apple-system, system-ui, sans-serif; background: #f1f5f9; margin: 0; padding: 15px; padding-bottom: 120px; -webkit-tap-highlight-color: transparent; }
+        h2 { color: #0f172a; margin: 20px 0 5px 0; font-size: 1.8rem; letter-spacing: -0.02em; }
+        .section-header { font-weight: 800; text-transform: uppercase; margin: 25px 0 10px 5px; font-size: 0.75rem; color: #64748b; letter-spacing: 0.08em; }
         
         .med-card {
-            background: white; border-radius: 16px; padding: 16px; margin-bottom: 12px;
-            display: flex; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            border-left: 6px solid #cbd5e1; transition: transform 0.1s;
+            background: white; border-radius: 16px; padding: 18px; margin-bottom: 12px;
+            display: flex; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            border-left: 6px solid #cbd5e1;
         }
         .morning { border-left-color: #f97316; }
         .night { border-left-color: #3b82f6; }
@@ -35,17 +36,17 @@
         }
         .checked .check-box { background: #22c55e; border-color: #22c55e; }
         .med-info { flex: 1; }
-        .med-name { font-weight: 700; display: block; font-size: 1.1rem; color: #1e293b; }
-        .med-meta { font-size: 0.9rem; color: #64748b; margin-top: 2px; }
+        .med-name { font-weight: 700; display: block; font-size: 1.15rem; color: #1e293b; }
+        .med-meta { font-size: 0.95rem; color: #64748b; margin-top: 2px; }
 
-        .footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 20px 20px 40px 20px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-top: 1px solid #e2e8f0; }
-        button { width: 100%; padding: 16px; background: #0f172a; color: white; border: none; border-radius: 14px; font-weight: 700; font-size: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 20px 20px 45px 20px; background: rgba(255,255,255,0.9); backdrop-filter: blur(15px); border-top: 1px solid #e2e8f0; z-index: 100; }
+        button { width: 100%; padding: 18px; background: #0f172a; color: white; border: none; border-radius: 16px; font-weight: 700; font-size: 1rem; }
     </style>
 </head>
 <body>
 
     <h2>Dosette Prep</h2>
-    <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">Check off as you load the box</p>
+    <p style="color: #64748b; font-size: 0.95rem;">Check off as you load the box</p>
 
     <div id="app"></div>
 
