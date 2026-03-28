@@ -15,7 +15,8 @@
     <style>
         :root { --morning: #fff7ed; --night: #eff6ff; --other: #f8fafc; }
         body { font-family: -apple-system, system-ui, sans-serif; background: #f1f5f9; margin: 0; padding: 15px; padding-bottom: 120px; -webkit-tap-highlight-color: transparent; }
-        h2 { color: #0f172a; margin: 20px 0 5px 0; font-size: 1.8rem; }
+        h2 { color: #0f172a; margin: 20px 0 2px 0; font-size: 1.8rem; }
+        .last-updated { color: #64748b; font-size: 0.9rem; margin-bottom: 20px; display: block; }
         .section-header { font-weight: 800; text-transform: uppercase; margin: 25px 0 10px 5px; font-size: 0.75rem; color: #64748b; letter-spacing: 0.08em; }
         .med-card { background: white; border-radius: 16px; padding: 18px; margin-bottom: 12px; display: flex; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border-left: 6px solid #cbd5e1; }
         .morning { border-left-color: #f97316; }
@@ -34,36 +35,29 @@
 </head>
 <body>
 
-    <h2>Dosette Prep</h2>
+    <h2>Mum's Meds</h2>
+    <span class="last-updated">Last Updated: <b>28 Mar 2026</b></span>
+
     <div id="app"></div>
-    <div class="footer"><button onclick="renderApp()">Reset Checklist</button></div>
+    
+    <div class="footer">
+        <button onclick="resetAndScroll()">Reset Checklist</button>
+    </div>
 
     <script>
-        // 1. DYNAMIC ICON GENERATOR
-        // This creates a 180x180 PNG (Apple's preferred size) with a 💊 emoji
         function createIcon() {
             const canvas = document.createElement('canvas');
-            canvas.width = 180;
-            canvas.height = 180;
+            canvas.width = 180; canvas.height = 180;
             const ctx = canvas.getContext('2d');
-            
-            // Draw background
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, 180, 180);
-            
-            // Draw Emoji
-            ctx.font = '130px serif';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
+            ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, 180, 180);
+            ctx.font = '130px serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
             ctx.fillText('💊', 90, 100);
-            
             const iconUrl = canvas.toDataURL('image/png');
             document.getElementById('favicon').href = iconUrl;
             document.getElementById('apple-icon').href = iconUrl;
         }
         createIcon();
 
-        // 2. APP LOGIC
         const data = [
             { name: "Alendronic Acid (70mg)", dose: "1 Tab", time: "07:00 (Tuesday)", grp: "Morning" },
             { name: "Adcal D3 (Morning)", dose: "1 Tab", time: "08:00", grp: "Morning" },
@@ -96,6 +90,12 @@
             });
             document.getElementById('app').innerHTML = html;
         }
+
+        function resetAndScroll() {
+            renderApp();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         renderApp();
     </script>
 </body>
