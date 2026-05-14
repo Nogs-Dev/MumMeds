@@ -13,7 +13,7 @@
     <link id="apple-icon" rel="apple-touch-icon">
 
     <style>
-        :root { --morning: #fff7ed; --night: #eff6ff; --other: #f8fafc; }
+        :root { --morning: #fff7ed; --evening: #eff6ff; --night: #f8fafc; }
         body { font-family: -apple-system, system-ui, sans-serif; background: #f1f5f9; margin: 0; padding: 15px; padding-bottom: 120px; -webkit-tap-highlight-color: transparent; }
         h2 { color: #0f172a; margin: 20px 0 2px 0; font-size: 1.8rem; }
         .last-updated { color: #64748b; font-size: 0.9rem; margin-bottom: 20px; display: block; }
@@ -69,7 +69,7 @@
         ];
 
         function renderApp() {
-            const groups = ["Morning", "Night", "Weekly/Other"];
+            const groups = ["Morning", "Evening", "Night"];
             let html = "";
             groups.forEach(g => {
                 html += `<div class="section-header">${g}</div>`;
